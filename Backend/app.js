@@ -33,12 +33,12 @@ app.use(express.urlencoded({ extended: true }));
 //   );
 //   next();
 // });
-// app.use(helmet.contentSecurityPolicy({
-//   directives: {
-//     defaultSrc: ['*'],
-//     imgSrc: ['*']
-//   }
-// }));
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ['*'],
+    imgSrc: ['*']
+  }
+}));
 // app.use(helmet.permittedCrossDomainPolicies({
 //   permittedPolicies: 'all'
 // }));

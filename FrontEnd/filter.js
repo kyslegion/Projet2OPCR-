@@ -1,91 +1,41 @@
-    export function filter(data) {
+import { showAllProjects } from "./showAllProjects.js";
+import { showFilteredProjects } from "./showFilteredProjects.js";
+
+export function filter(data) {
+    
+
+    //ON RECUPERE LE DOSSIER DANS LEQUEL S'AFFICHE LES IMAGES
     let gallery = document.querySelector('.gallery');
 
+    //ON RECUPRE LES DIFFERENTS BOUTONS FILTRES
     const all = document.getElementById('all');
     const objects = document.getElementById('objects');
     const flats = document.getElementById('flats');
     const hotels_and_restaurants = document.getElementById('hotels_and_restaurants');
-    function firstLoadObject(params) {
-        let allSet=new Set();
-        data.forEach(element => {
-            allSet.add(element);
-        })
-        let gallery = document.querySelector('.gallery');
-        while (gallery.firstChild) {
-            gallery.removeChild(gallery.firstChild);
-        }
-        allSet.forEach(element => {
-            let figure = document.createElement('figure');
-            let img = document.createElement('img');
-            let figcaption = document.createElement('figcaption');
-            img.src=element.imageUrl
-            figcaption.innerHTML=element.title
-            figure.appendChild(img);
-            figure.appendChild(figcaption);
-            gallery.appendChild(figure);
-            // Ajouter un élément à la galerie
-        });
-    }
-    function AllObject(filter) {
-        //ALL DATA IN ALL SET
-        let allSet=new Set();
-        data.forEach(element => {
-            allSet.add(element);
-        })
 
-        // DATA FILTERED
-        let newSet=new Set();
-        allSet.forEach(element => {
-            if (element.category.name==filter) {
-                newSet.add(element);
-            }
-        })
-        //ALL DATA BECOME DATA FILTERED
-        allSet = newSet;
-        console.log(allSet);
-
-        //CREATE HTML ELEMENT 
-        
-        let gallery = document.querySelector('.gallery');
-        while (gallery.firstChild) {
-            gallery.removeChild(gallery.firstChild);
-          }
-        // console.log(gallery.children.length,'gallery');
-        allSet.forEach(element => {
-            let figure = document.createElement('figure');
-            let img = document.createElement('img');
-            let figcaption = document.createElement('figcaption');
-            img.src=element.imageUrl
-            figcaption.innerHTML=element.title
-            figure.appendChild(img);
-            figure.appendChild(figcaption);
-            gallery.appendChild(figure);
-            // Ajouter un élément à la galerie
-        });
-    }
-    firstLoadObject()
+    //ON INITIALISE L'AFFICHAGE DES PROJETS/IMAGES AVANT QUIL NE SOIT FILTRé
+    showAllProjects(data)
    
-        all.addEventListener('click', () => {
-            firstLoadObject()
-        });
-    
-        objects.addEventListener('click', () => {
-            let filter="Objets"
-            AllObject(filter)
-        });
-        
-        flats.addEventListener('click', () => {
-            let filter="Appartements"
-            AllObject(filter)
-        });
-    
-        hotels_and_restaurants.addEventListener('click', () => {
-            let filter="Hotels & restaurants"
-            AllObject(filter)
-        });
 
+    //ON MET UN LISTENER SUR LES BOUTONS POUR DECLENCHER DU JAVASCRIPT LORS D'UN CLICK
 
-
-
-    
+    //AFFICHE TOUT LES PROJETS
+    all.addEventListener('click', () => {
+         showAllProjects(data)
+    });
+    // AFFICHE UNIQUEMENT LES OBJETS
+    objects.addEventListener('click', () => {
+        let filter="Objets"
+        showFilteredProjects(data,filter)
+    });
+    // AFFICHE UNIQUEMENT LES APPARTEMENTS
+    flats.addEventListener('click', () => {
+        let filter="Appartements"
+        showFilteredProjects(data,filter)
+    });
+    // AFFICHE UNIQUEMENT LES LES HOTELS ET RESTAURANTS
+    hotels_and_restaurants.addEventListener('click', () => {
+        let filter="Hotels & restaurants"
+        showFilteredProjects(data,filter)
+    });
 }
