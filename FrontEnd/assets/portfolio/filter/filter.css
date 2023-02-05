@@ -1,0 +1,18 @@
+.filter {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 51px;
+    cursor: pointer;
+}
+.filter li{
+    border: 1px solid #1D6154;
+    border-radius: 60px;
+    padding: 10px;
+    padding-inline: 20px;
+}
+.filter li:nth-child(1){
+    background: rgba(29, 97, 84, 1);
+    color: rgba(255, 255, 255, 1);
+}
