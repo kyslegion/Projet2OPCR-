@@ -8,14 +8,16 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
-	<script type="module" src="./fetch.js"></script>
-	<script type="module" src="./filter.js"></script>
+	<!-- <script type="module" src="./fetch.js"></script>
+	<script type="module" src="./filter.js"></script> -->
 	<script type="module">
 		import { fetchData } from "./fetch.js";
 		import { filter } from "./filter.js";
+		import { navBar } from "./navBar.js";
 		fetchData().then((data) => {
 			filter(data)
 		});
+		navBar()
 	</script>
 		
 	<link rel="stylesheet" href="./assets/style.css">
@@ -25,9 +27,9 @@
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li>login</li>
+			<li id="projets">projets</li>
+			<li id="contact">contact</li>
+			<li id="login">login</li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
