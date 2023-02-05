@@ -9,14 +9,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<script type="module" src="./fetch.js"></script>
-	<script type="module" src="./item.js"></script>
+	<script type="module" src="./filter.js"></script>
 	<script type="module">
-			import { fetchData } from "./fetch.js";
-			import { items } from "./item.js";
-			fetchData().then((data) => {
-			  items(data)
-			});
-
+		import { fetchData } from "./fetch.js";
+		import { filter } from "./filter.js";
+		fetchData().then((data) => {
+			filter(data)
+		});
 	</script>
 		
 	<link rel="stylesheet" href="./assets/style.css">
