@@ -171,6 +171,39 @@ paths:
          description: Unauthorized
        '500':
          description: Unexpected Behaviour
+  
+  /form:
+    post:
+      summary: "Envoyer un formulaire"
+      description: "Envoie les données entrées dans le formulaire associé "
+      consumes:
+        - "application/json"
+      parameters:
+        - name: "form data"
+          in: "body"
+          description: "The form data to be submitted"
+          required: true
+          schema:
+            $ref: "#/definitions/FormData"
+      responses:
+        201:
+          description: "Formulaire envoyé !"
+        400:
+          description: "Erreur dans l'envoi du formulaire"
+definitions:
+  FormData:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        description: "The name of the person submitting the form"
+        example: "John Doe"
+      email:
+        type: "string"
+        description: "The email address of the person submitting the form"
+        example: "john.doe@example.com"
+  
+  
 
 components:
   securitySchemes:

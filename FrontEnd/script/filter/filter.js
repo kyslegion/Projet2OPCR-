@@ -1,5 +1,5 @@
-import { showAllProjects } from "./showAllProjects.js";
-import { showFilteredProjects } from "./showFilteredProjects.js";
+import { showAllProjects } from "./showAllProjects/showAllProjects.js";
+import { showFilteredProjects } from "./showFilteredProjects/showFilteredProjects.js";
 
 export function filter(data) {
     

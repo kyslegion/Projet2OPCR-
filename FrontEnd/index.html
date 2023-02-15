@@ -6,26 +6,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="./style/style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
-	<!-- <script type="module" src="./fetch.js"></script>
-	<script type="module" src="./filter.js"></script> -->
-	<script type="module">
-		import { fetchData } from "./fetch.js";
-		import { filter } from "./filter.js";
-		import { navBar } from "./navBar.js";
-		fetchData().then((data) => {
-			filter(data)
-		});
-		navBar()
-	</script>
-		
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-<header>
+<header class="header">
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-	<nav>
+	<nav class="nav">
 		<ul>
 			<li id="projets">projets</li>
 			<li id="contact">contact</li>
@@ -55,56 +44,12 @@
 			<li id="hotels_and_restaurants">Hôtels & restaurants</li>
 		</ul>
 		<div class="gallery">
-			<!-- <figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure> -->
 		</div>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
-		<form action="#" method="post">
+		<form action="/example" method="POST">
 			<label for="name">Nom</label>
 			<input type="text" name="name" id="name">
 			<label for="email">Email</label>
@@ -123,5 +68,23 @@
 		</ul>
 	</nav>
 </footer>
+<script type="module">
+	import { login } from "./script/login/login.js";
+
+	import { filter } from "./script/filter/filter.js";
+
+	import { fetchGet } from "./script/fetch/fetchGet.js";
+	import { fetchPost } from "./script/fetch/fetchPost.js";
+
+	import { modal } from "./script/modal.js";
+	
+	fetchGet().then((data) => {
+		filter(data)
+	});
+	login()
+	fetchPost(modal)
+	
+	
+</script>
 </body>
 </html>
