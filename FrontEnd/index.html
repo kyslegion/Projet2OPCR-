@@ -76,13 +76,13 @@
 	import { fetchGet } from "./script/fetch/fetchGet.js";
 	import { fetchPost } from "./script/fetch/fetchPost.js";
 
-	import { modal } from "./script/modal.js";
-	
+	import { createHTML } from "./script/createHTML/createHTML.js";
+
 	fetchGet().then((data) => {
 		filter(data)
 	});
 	login()
-	fetchPost(modal)
+	fetchPost(fetchGet,filter,createHTML)
 	
 	
 </script>

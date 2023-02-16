@@ -79,11 +79,50 @@ input[type="submit"]{
 	width: 41.01vw;
 	left: 405px;
 	top: 660px;
-    margin-top: calc(56px + 601px);
-    /* 601 */
+	margin-top: calc(56px + 601px);
 	border-radius: 10px;
 	/* position: fixed; */
 	z-index: 1;
 	top: 0;
 	left: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+
+
+.croix{
+    position: relative;
+    left: 18vw;
+    top: -6vw;
+    }
+    .titre {
+        margin-top: 60px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        font-family: Work Sans;
+    }
+.box_image {
+	width: calc(100% - 105px);
+	height: calc(100% - 135px);
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	gap: 6px;
+    grid-template-rows: 0fr 0fr;
+}
+.mini_img{
+    /* width: 78.12px; */
+    /* height: 104.08px; */
+}
+.mini_img img{
+    width: 100%;
 }
