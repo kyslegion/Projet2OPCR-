@@ -49,17 +49,6 @@ app.use('/api/categories', categoriesRoutes);
 app.use('/api/works', worksRoutes);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-
-// app.post("/form", (req, res) => {
-//   if (req.body.email === "sophie.bluel@test.tld") {
-//     if (req.body.password === "S0phie") {
-//       res.status(200).send({ message: "Bievenue sophie !" });
-//     }
-//   }
-//   else {
-//     res.status(401).send({ message: "Adresse e-mail incorrecte" });
-//   }
-// });
 db.sequelize.sync().then(() => console.log('DB is ready'));
 
 module.exports = app;

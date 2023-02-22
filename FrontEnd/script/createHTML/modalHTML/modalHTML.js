@@ -113,19 +113,7 @@ export function modal(fetchGet) {
                 croix.className="croix"
                 croix.innerHTML="X"
                 titre.appendChild(croix)
-
-
-
-
-            //     <form action="/" method="post" enctype="multipart/form-data">
-    
-            //     <label for="image-upload" class="add_img">Ajouter une photo</label>
-            //     <input id="image-upload" type="file" name="image" accept="image/*" style="display:none;" />
-    
-            //     <label for="image-upload" class="add_img">Supprimer la galerie</label>
-            //     <input id="image-upload" type="file" name="image" accept="image/*" style="display:none;" />
-    
-            // </form> 
+                
             let form=document.createElement('form')
             form.action = '/';
             form.method = 'post';
