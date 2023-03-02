@@ -6,18 +6,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="./style/style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-<header class="header">
+<header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-	<nav class="nav">
+	<nav>
 		<ul>
-			<li id="projets">projets</li>
-			<li id="contact">contact</li>
+			<li>projets</li>
+			<li>contact</li>
 			<li id="login">login</li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
@@ -49,7 +49,7 @@
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
-		<form action="/example" method="POST">
+		<form action="#" method="post">
 			<label for="name">Nom</label>
 			<input type="text" name="name" id="name">
 			<label for="email">Email</label>
@@ -69,20 +69,14 @@
 	</nav>
 </footer>
 <script type="module">
-	import { login } from "./script/login/login.js";
-
+	import { login } from "./script/event/unconnected/login/login.js";
+	import { fetchGetWorks } from "./script/fetch/get/works.js";
 	import { filter } from "./script/filter/filter.js";
-
-	import { fetchGet } from "./script/fetch/fetchGet.js";
-	import { fetchPost } from "./script/fetch/fetchPost.js";
-
-	import { createHTML } from "./script/createHTML/createHTML.js";
-
-	fetchGet().then((data) => {
+	login()
+	// fetchGetWorks()
+	fetchGetWorks().then((data) => {
 		filter(data)
 	});
-	login()
-	fetchPost(fetchGet,filter,createHTML)
 	
 	
 </script>

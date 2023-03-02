@@ -5,7 +5,19 @@ module.exports = (req, res, next) => {
 		const categoryId = parseInt(req.body.category) ?? undefined;
 		const userId = req.auth.userId ?? undefined;
 		const imageUrl = `${req.protocol}://${host}/images/${req.file.filename}` ?? undefined;
-	// console.log(title,categoryId,userId,imageUrl)
+		console.log("host",host,"title",title,"categoryId",categoryId,"imageUrl",imageUrl,"on test");
+	if (title !== undefined &&
+		title.length > 0 &&
+		categoryId !== undefined &&
+		categoryId > 0 &&
+		userId !== undefined &&
+		userId > 0 &&
+		imageUrl !== undefined) {
+	  console.log('All required fields are present.');
+	} else {
+	  console.log('Some required fields are missing.');
+	}
+	
 		if(title !== undefined &&
 			title.length > 0 &&
 			categoryId !== undefined &&
@@ -18,8 +30,10 @@ module.exports = (req, res, next) => {
 		}else{
 			return res.status(400).json({error: new Error("Bad Request")})
 		}
-	}catch(e){
-		return res.status(500).json({error: new Error("Something wrong occured")})
-	}
+	}catch (error) {
+		console.error(error);
+		const errorMessage = `Error in check work middleware: ${error.message}`;
+		return res.status(500).json({ error: errorMessage });
+	  }
 
 }

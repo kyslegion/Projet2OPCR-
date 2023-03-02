@@ -1,12 +1,10 @@
 const dbConfig = require("./../config/db.config.js");
-console.log(dbConfig,"test dnconfig");
 const {Sequelize}  = require("sequelize");
 const config = require("../config/db.config");
 
 const sequelize = new Sequelize('project6-db', 'user', 'pass', config)
 
 const db = {}
-console.log(sequelize,"test sequelize");
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;

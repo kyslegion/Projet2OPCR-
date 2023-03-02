@@ -1,5 +1,4 @@
 const API_URL = "http://localhost:5678/api/works";
-console.log("je suis dans fetchGet.js");
 export const fetchGet = (shouldReturn = true,filter) => {
   return fetch(API_URL, {
     method: "Get",
@@ -11,11 +10,12 @@ export const fetchGet = (shouldReturn = true,filter) => {
         response.json().then((json) => {
           filter(json)
         });
-        
       }
+    })
+    .then((data)=>{
+      console.log(data);
     })
     .catch((error) => {
       console.error(error);
     });
 };
-  

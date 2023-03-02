@@ -6,8 +6,8 @@ const checkWork = require('../middlewares/checkWork');
 const workCtrl = require('../controllers/works.controller');
 
 router.post('/', auth, multer, checkWork, workCtrl.create);
+// router.post('/', auth, multer, checkWork);
 router.get('/', workCtrl.findAll);
 router.delete('/:id', auth, workCtrl.delete);
-
 
 module.exports = router;
