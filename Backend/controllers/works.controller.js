@@ -26,6 +26,9 @@ exports.create = async (req, res) => {
 }
 
 exports.delete = async (req, res) => {
+	console.log("on est dans delete");
+	console.log(Works);
+	console.log(req.params);
 	try{
 		await Works.destroy({where:{id: req.params.id}})
 		return res.status(204).json({message: 'Work Deleted Successfully'})

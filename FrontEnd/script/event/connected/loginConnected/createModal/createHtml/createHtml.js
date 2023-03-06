@@ -4,7 +4,7 @@ export let createHtml=()=>{
     body.innerHTML=`
 <body>
     <header class="connected" id="header">
-        <div class="box">
+        <div class="modal">
           <span class="edit">
           <img src="./assets/icons/editor icon.png">
           Mode edition</span>

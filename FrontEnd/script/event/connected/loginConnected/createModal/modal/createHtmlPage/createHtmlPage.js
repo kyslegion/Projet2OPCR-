@@ -3,7 +3,8 @@ import { fetchGetWorks } from "../../../../../../fetch/get/works2.js";
 export function createHtmlPage() {
   return new Promise((resolve) => {
   fetchGetWorks().then((data) => {
-    console.log(data, "ces data");
+    console.log(data, "c'est data");
+    localStorage.setItem('projects', JSON.stringify(data));
     let body = document.querySelector("body");
 
     let box_manager = document.createElement("box_manager");
@@ -11,17 +12,26 @@ export function createHtmlPage() {
     let container = document.createElement("div");
     let content = document.createElement("div");
     let ul = document.createElement("ul");
+    
     box_manager.id='box_manager';
     dark_filter.id = "dark_filter";
     container.id = "container";
     content.id = "content";
     ul.className = "box_image";
+    
 
     data.forEach((element) => {
       let li = document.createElement("li");
       let img = document.createElement("img");
+      let deletefile = document.createElement("button");
+      deletefile.className = "deletefile";
+      deletefile.innerHTML = "Effacer";
+
+      console.log(element.id,"lem");
+      li.setAttribute('id', element.id);
       img.src = element.imageUrl;
       li.className = "mini_img";
+      li.appendChild(deletefile)
       li.appendChild(img);
       ul.appendChild(li);
     });

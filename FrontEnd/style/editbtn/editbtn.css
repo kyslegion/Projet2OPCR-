@@ -1,6 +1,6 @@
 @import url("./filter/filter.css");
 
-.box {
+.modal {
 	background-color: black;
 	height: 56px;
 	z-index: 1;
@@ -12,7 +12,7 @@
 	width: 100vw;
 	left: -198px;
 }
-.box span{
+.modal span{
     color: white;
 }
 
@@ -42,7 +42,7 @@
 }
 #content {
 	background-color: white;
-	height: 47.59vw;
+	/* height: 47.59vw; */
 	width: 41.01vw;
 	left: 405px;
 	top: 660px;

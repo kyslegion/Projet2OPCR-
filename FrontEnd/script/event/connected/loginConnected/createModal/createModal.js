@@ -1,6 +1,9 @@
 import { createHtml } from "./createHtml/createHtml.js";
-import { box } from "./box/box.js";
+import { modal } from "./modal/modal.js";
+// import { closeModal } from "./closeModal/closeModal.js";
 export let createModal=()=>{
     createHtml()
-    box()
+    modal()
+    // closeModal()
+
 }

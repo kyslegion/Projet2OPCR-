@@ -1,14 +1,16 @@
+import { fetchDelete } from "../../../../../fetch/delete/delete.js";
 export let listener=()=>{
     let form=document.querySelector('#form')
-    form.addEventListener('submit',()=>{
+    form.addEventListener('submit',(e)=>{
+        e.preventDefault();
 
-        event.preventDefault();
+        // event.preventDefault();
 
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
         const token = localStorage.getItem('token');
         const tokenObj = JSON.parse(token);
-        console.log(token,"et la");
+        // console.log(token,"et la");
         const headers = { 'Authorization': 'Bearer ' + tokenObj.token }
         fetch("http://localhost:5678/api/works", {
         method: "POST",
@@ -57,6 +59,18 @@ export let listener=()=>{
         .catch((error) => {
           console.error(error,"on est dans listener");
         });
+        return false;
 
     })
+    // const workCtrl = require('../controllers/works.controller');
+    let deletefile=document.querySelectorAll('.deletefile')
+    deletefile.forEach(element => {
+      element.addEventListener("click", (e)=>{
+        e.preventDefault();
+        const parentId = parseInt(e.target.parentElement.id,"idd");
+        console.log(parentId, typeof parentId);
+        fetchDelete(parentId)
+      });
+      
+    });
 }
