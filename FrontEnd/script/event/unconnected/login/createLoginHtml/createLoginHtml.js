@@ -2,7 +2,7 @@ export function createLoginHtml() {
     let main=document.querySelector('main')
     main.innerHTML=`
     <h2 class="h2">Log in</h2>
-    <form class="form" id="form" action="/example" method="POST">
+    <form class="form" id="form" method="POST">
       <label for="email">Email
         <input type="email" id="email" name="email">
       </label>

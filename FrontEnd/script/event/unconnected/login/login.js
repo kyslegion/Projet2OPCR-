@@ -3,9 +3,10 @@ import { formListener } from "./formListener/formListener.js";
 // import { fetchGetWorks } from "../../../fetch/get/works.js";
 export function login() {
   let login=document.querySelector('#login')
-  login.addEventListener('click',()=>{
+  login.addEventListener('click',(e)=>{
+    e.preventDefault()
     createLoginHtml()
     formListener()
-    // fetchGetWorks()
+    console.log('click sur login');
   })
 }

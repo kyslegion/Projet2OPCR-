@@ -66,6 +66,7 @@
     position: relative;
     left: 18vw;
     top: -6vw;
+	cursor: pointer;
     }
     .titre {
         margin-top: 60px;

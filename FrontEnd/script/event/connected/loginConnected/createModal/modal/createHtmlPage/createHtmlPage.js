@@ -3,7 +3,7 @@ import { fetchGetWorks } from "../../../../../../fetch/get/works2.js";
 export function createHtmlPage() {
   return new Promise((resolve) => {
   fetchGetWorks().then((data) => {
-    console.log(data, "c'est data");
+    console.log(data, "liste objets dans modal");
     localStorage.setItem('projects', JSON.stringify(data));
     let body = document.querySelector("body");
 
@@ -23,11 +23,11 @@ export function createHtmlPage() {
     data.forEach((element) => {
       let li = document.createElement("li");
       let img = document.createElement("img");
-      let deletefile = document.createElement("button");
+      let deletefile = document.createElement("input");
+      deletefile.type = "button";
       deletefile.className = "deletefile";
-      deletefile.innerHTML = "Effacer";
-
-      console.log(element.id,"lem");
+      deletefile.value = "Effacer";
+    
       li.setAttribute('id', element.id);
       img.src = element.imageUrl;
       li.className = "mini_img";
@@ -35,6 +35,7 @@ export function createHtmlPage() {
       li.appendChild(img);
       ul.appendChild(li);
     });
+    
 
     let titre = document.createElement("div");
     titre.className = "titre";
@@ -43,33 +44,25 @@ export function createHtmlPage() {
     croix.className = "croix";
     croix.innerHTML = "X";
     titre.appendChild(croix);
-
-    let form = document.createElement("form");
-form.id = "form";
-form.enctype = "multipart/form-data";
-form.innerHTML = `
-    <label for="image-upload" class="add_img">Ajouter une photo</label>
-    <input id="image-upload" type="file" name="image" accept="image/*" style="display:none;" />
-    <label for="title">Titre:</label>
-    <input type="text" id="title" name="title">
-    <label for="categoryId">Catégorie:</label>
-    <input type="text" id="category" name="category">
-    <button type="submit">Télécharger</button>`;
-
+    let addProject = document.createElement("div");
+    addProject.id = "addProject";
+    addProject.innerHTML = `
+    <button id='addPhoto'>Ajouter une photo</button>
+    <button id='deleteGallery'>Supprimer la galerie</button>
+    `;
 
     // Ajouter les éléments créés au body
     content.appendChild(ul);
     container.appendChild(titre);
+
     container.appendChild(content);
-    container.appendChild(form);
-    // dark_filter.appendChild(container);
+    container.appendChild(addProject);
 
     box_manager.appendChild(dark_filter)
     box_manager.appendChild(container)
 
 
     body.appendChild(box_manager);
-    // body.appendChild(container);
     resolve();
   });
   });
