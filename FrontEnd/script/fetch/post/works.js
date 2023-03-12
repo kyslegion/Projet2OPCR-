@@ -1,5 +1,6 @@
 import { tokenGet } from "./works/tokenGet.js";
 import { fetchGetWorks } from "../get/works.js";
+import { filter } from "../../filter/filter.js";
 export function workPost(formData) {
   console.log(formData,"dans work");
   const tokenObj = tokenGet();
@@ -19,60 +20,59 @@ export function workPost(formData) {
     
      return new Promise((resolve) => {
       fetchGetWorks().then((data) => {
+        filter(data)
         let container=document.querySelector('#container')
 
-    let content = document.createElement("div");
-    let ul = document.createElement("ul");
-    
-    // box_manager.id='box_manager';
-    // dark_filter.id = "dark_filter";
-    container.id = "container";
-    content.id = "content";
-    ul.className = "box_image";
+        let content = document.createElement("div");
+        let ul = document.createElement("ul");
 
-    data.forEach((element) => {
-      let li = document.createElement("li");
-      let img = document.createElement("img");
-      let deletefile = document.createElement("input");
-      deletefile.type = "button";
-      deletefile.className = "deletefile";
-      deletefile.value = "Effacer";
-    
-      li.setAttribute('id', element.id);
-      img.src = element.imageUrl;
-      li.className = "mini_img";
-      li.appendChild(deletefile)
-      li.appendChild(img);
-      ul.appendChild(li);
-    });
+        container.id = "container";
+        content.id = "content";
+        ul.className = "box_image";
 
-    let titre = document.createElement("div");
-    titre.className = "titre";
-    titre.innerHTML = "Galerie photo";
-    let croix = document.createElement("div");
-    croix.className = "croix";
-    croix.innerHTML = "X";
-    titre.appendChild(croix);
-    let addProject = document.createElement("div");
-    addProject.id = "addProject";
-    addProject.innerHTML = `
-    <button id='addPhoto'>Ajouter une photo</button>
-    <button id='deleteGallery'>Supprimer la galerie</button>
-    `;
+        data.forEach((element) => {
+          let li = document.createElement("li");
+          let img = document.createElement("img");
+          let deletefile = document.createElement("input");
+          deletefile.type = "button";
+          deletefile.className = "deletefile";
+          deletefile.value = "Effacer";
+        
+          li.setAttribute('id', element.id);
+          img.src = element.imageUrl;
+          li.className = "mini_img";
+          li.appendChild(deletefile)
+          li.appendChild(img);
+          ul.appendChild(li);
+        });
 
-    // Ajouter les éléments créés au body
-    content.appendChild(ul);
-    container.appendChild(titre);
+        let titre = document.createElement("div");
+        titre.className = "titre";
+        titre.innerHTML = "Galerie photo";
+        let croix = document.createElement("div");
+        croix.className = "croix";
+        croix.innerHTML = "X";
+        titre.appendChild(croix);
+        let addProject = document.createElement("div");
+        addProject.id = "addProject";
+        addProject.innerHTML = `
+        <button id='addPhoto'>Ajouter une photo</button>
+        <button id='deleteGallery'>Supprimer la galerie</button>
+        `;
 
-    container.appendChild(content);
-    container.appendChild(addProject);
+        // Ajouter les éléments créés au body
+        content.appendChild(ul);
+        container.appendChild(titre);
 
-    // box_manager.appendChild(dark_filter)
-    // box_manager.appendChild(container)
+        container.appendChild(content);
+        container.appendChild(addProject);
+
+        // box_manager.appendChild(dark_filter)
+        // box_manager.appendChild(container)
 
 
-    // body.appendChild(box_manager);
-    resolve();
+        // body.appendChild(box_manager);
+        resolve();
       })
      })
       

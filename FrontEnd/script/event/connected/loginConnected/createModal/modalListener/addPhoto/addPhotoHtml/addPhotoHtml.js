@@ -28,7 +28,7 @@ export function addPhotoHtml() {
                     </span>
                 </div>
             </label>
-            <input type="file" id="image-upload" name="image" style="display:none">
+            <input type="file" id="image-upload" name="image"  required>
             <span>jpg, png : 4mo max</span>
             <br><br>
         </div>
@@ -37,16 +37,16 @@ export function addPhotoHtml() {
       
       
       <label for="titre">Titre:</label>
-      <input type="text" id="title" name="title"><br><br>
+      <input type="text" id="title" name="title" required><br><br>
 
       <label for="categoryId">Catégorie:</label>
-      <select id="category" name="category">
+      <select id="category" name="category" required>
       <option value="" selected></option>
         <option value="1">Objets</option>
         <option value="2">Appartements</option>
         <option value="3">Hôtels & restaurants</option>
       </select><br><br>
-      <input type="submit" value="Valider">
+      <input type="submit" value="Valider" required>
     </form>
     `
 }

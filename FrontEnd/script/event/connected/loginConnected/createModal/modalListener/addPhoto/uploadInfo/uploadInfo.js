@@ -31,4 +31,15 @@ export function uploadInfo() {
         reader.readAsDataURL(file);
       }
     });
+    // document.querySelector('#form').addEventListener('submit', (e) => {
+    //   console.log("dans submit");
+    //   // Vérifier si l'input image contient une image
+    //   if (input.files.length > 0) {
+    //     console.log("inf");
+    //     // Afficher un message d'erreur dans le label de l'input image
+    //     label.innerText = 'Veuillez supprimer l\'image avant de soumettre le formulaire';
+    //     label.style.color = 'red';
+    //     e.preventDefault(); // Empêcher la soumission du formulaire
+    //   }
+    // });
 }

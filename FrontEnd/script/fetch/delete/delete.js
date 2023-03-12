@@ -1,11 +1,13 @@
 const API_URL = "http://localhost:5678/api/works";
-export const fetchDelete = (id,e) => {
+import { filter } from "../../filter/filter.js";
+import { fetchGetWorks } from "../get/works.js";
+export const fetchDelete = (id,x) => {
   const token = localStorage.getItem('token');
   const tokenObj = JSON.parse(token);
   const projects = localStorage.getItem('projects');
   const headers = { 
     'Authorization': 'Bearer ' + tokenObj.token,
-    'Content-Type': 'application/x-www-form-urlencoded'
+    "Content-Type": "multipart/form-data",
   };
 
   fetch(`${API_URL}/${id}`, {
@@ -16,10 +18,16 @@ export const fetchDelete = (id,e) => {
       if (!response.ok) {
         throw new Error("Erreur lors de la suppression.");
       }
-      console.log(reponse);
+      console.log(response);
+      console.log(x,"dans delete");
+      x.remove()
       console.log("L'élément a été supprimé avec succès.");
+      fetchGetWorks().then((data) => {
+        console.log(data,'liste objet accueil');
+        filter(data)
+      });
       // form.reset();
-      e.preventDefault();
+      // e.preventDefault();
     })
     .catch((error) => {
       console.error(error);

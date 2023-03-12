@@ -9,19 +9,21 @@ export let modalListener=()=>{
   
   let deletefile=document.querySelectorAll('.deletefile')
   deletefile.forEach(element => {
-    element.addEventListener("click", (e)=>{
-      console.log(e,"event");
-      e.preventDefault(); // Empêche le comportement par défaut du bouton
-      const parentId = parseInt(e.target.parentElement.id,"id");
+    element.addEventListener("click", (event)=>{
+      // debugger
+      console.log(event,"event");
+      event.preventDefault(); // Empêche le comportement par défaut du bouton
+      const parentId = parseInt(event.target.parentElement.id,"id");
+      let x=event.target.parentElement
       console.log(parentId, typeof parentId);
-      fetchDelete(parentId)
-        .then(() => {
-          console.log("L'élément a été supprimé avec succès.");
-          e.target.parentElement.remove();
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      fetchDelete(parentId,x)
+        // .then(() => {
+        //   console.log("L'élément a été supprimé avec succès.");
+        //   // e.target.parentElement.remove();
+        // })
+        // .catch((error) => {
+        //   console.error(error);
+        // });
     });
   });
 };
