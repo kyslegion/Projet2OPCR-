@@ -10,7 +10,7 @@ export function formListener() {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
         fetchLoginPost(data)
-        debugger
+        
         
     });
 

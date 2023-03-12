@@ -13,7 +13,7 @@ export function uploadInfo() {
     input.addEventListener('change', (e) => {
       e.preventDefault()
       const file = input.files[0];
-      console.log(file);
+      console.log(file,"on est dans le input change");
   
       if (file) {
         const reader = new FileReader();
@@ -24,7 +24,7 @@ export function uploadInfo() {
           image.src = reader.result;
           preview.innerHTML = '';
           preview.appendChild(image);
-
+// ECOUTEUR DEVENEMENT
           formEventListener(file)
         });
   

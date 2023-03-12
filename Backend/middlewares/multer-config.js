@@ -26,15 +26,14 @@ const upload = multer({ storage }).single('image');
 module.exports = (req, res, next) => {
   upload(req, res, (err) => {
     if (err instanceof multer.MulterError) {
-      // A Multer error occurred when uploading.
       console.log('A Multer error occurred when uploading: ', err);
       return res.status(400).json({ message: 'Bad Request' });
     } else if (err) {
-      // An unknown error occurred when uploading.
       console.log('An error occurred when uploading: ', err);
-      return res.status(500).json({ message: 'Internal Server Error' });
+      return res.status(500).json({ message: 'Internal Server Error in multer-config' });
     }
-    // Call the next middleware function
+    // add req.file to the request object
+    req.file = req.file;
     next();
   });
  

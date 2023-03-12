@@ -1,23 +1,22 @@
-import { workPost } from "../../../../../../../../fetch/post/works";
+import { workPost } from "../../../../../../../../fetch/post/works.js";
+import { validationForm } from "./validationForm.js";
+
 export function formDataCreate(form,file){
     const formData = new FormData(form);
-    console.log(formData,);
-    
-    let formIsValid = true;
-    formData.forEach((value, key) => {
-      if (!value) {
-        formIsValid = false;
-      }
-    });
-    if (!formIsValid) {
-      const errorDiv = document.createElement('div');
-      errorDiv.textContent = 'Veuillez remplir tous les champs.';
-      form.appendChild(errorDiv);
-      errorDiv.classList.add('error-message');
-      return;
-    }
-  
-    formData.append('image', file);
+
+    formData.delete('image');
+  formData.delete('title');
+  formData.delete('category');
+  formData.append('image', file);
+  formData.append('title', form.title.value);
+  formData.append('category', form.category.value);
+
+    // console.log(formData,"dans formDataCreate");
+    // console.log(file,"dans formDataCreate");
+    // formData.append('image', file);
+    // console.log(formData,"ajout image ");
+    // console.log(uploadedFile,"uploadfike");
+console.log(formData,"form test");
 
     workPost(formData)
 

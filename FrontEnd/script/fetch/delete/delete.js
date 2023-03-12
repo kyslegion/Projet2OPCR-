@@ -3,7 +3,10 @@ export const fetchDelete = (id,e) => {
   const token = localStorage.getItem('token');
   const tokenObj = JSON.parse(token);
   const projects = localStorage.getItem('projects');
-  const headers = { 'Authorization': 'Bearer ' + tokenObj.token }
+  const headers = { 
+    'Authorization': 'Bearer ' + tokenObj.token,
+    'Content-Type': 'application/x-www-form-urlencoded'
+  };
 
   fetch(`${API_URL}/${id}`, {
     method: "DELETE",

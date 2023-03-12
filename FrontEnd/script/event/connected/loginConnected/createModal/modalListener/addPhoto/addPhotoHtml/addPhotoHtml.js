@@ -5,13 +5,13 @@ export function addPhotoHtml() {
     <form id="form" style="display: flex;flex-direction: column;align-items: center;width: 630px;
     height: 670px;">
         <div id='containerBtnOptions'>
-            <button type="button" onclick="precedent()"><img src="/FrontEnd/assets/icons/back-svgrepo-com 1.png"></button>
-            <button type="button" onclick="close()"><img src="/FrontEnd/assets/icons/close-svgrepo-com 1.png"></button>
+            <button type="button" onclick="precedent()"><img src="../../../../../../../../assets/icons/back-svgrepo-com 1.png"></button>
+            <button type="button" onclick="close()"><img src="../../../../../../../../assets/icons/close-svgrepo-com 1.png"></button>
         </div>
         <h2>Ajout photo</h2>
 
         <div id="image-preview">
-        <img id="preview" src="/FrontEnd/assets/icons/picture-svgrepo-com 1.png" style="width: 58px;height: 58px;">
+        <img id="preview" src="../../../../../../../../assets/icons/picture-svgrepo-com 1.png" style="width: 58px;height: 58px;">
             <label for="image">
                 <div style="background: #CBD6DC;
                 border-radius: 50px;">
