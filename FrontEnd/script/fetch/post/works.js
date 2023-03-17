@@ -14,7 +14,6 @@ export function workPost(formData) {
     }
   })
   .then((response) => {
-    // console.log("dans then");
     let form=document.querySelector('#form')
     form.remove()
     
@@ -85,29 +84,5 @@ export function workPost(formData) {
   })
   .finally(() => {
     console.log("final");
-    // return new Promise((resolve) => {
-    //   fetchGetWorks().then((data) => {
-        
-    //     let box_image=document.querySelector('.box_image')
-    //     data.forEach((element) => {
-    //       let li = document.createElement("li");
-    //       let img = document.createElement("img");
-    //       let deletefile = document.createElement("input");
-    //       deletefile.type = "button";
-    //       deletefile.className = "deletefile";
-    //       deletefile.value = "Effacer";
-        
-    //       li.setAttribute('id', element.id);
-    //       img.src = element.imageUrl;
-    //       li.className = "mini_img";
-    //       li.appendChild(deletefile)
-    //       li.appendChild(img);
-    //       box_image.appendChild(li)
-    //       // ul.appendChild(li);
-    //     });
-        
-    //     resolve();
-    //   });
-    //   });
   });
 }

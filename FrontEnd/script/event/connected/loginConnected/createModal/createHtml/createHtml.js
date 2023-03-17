@@ -1,15 +1,23 @@
 export let createHtml=()=>{
     let html=document.querySelector('html')
     let body=document.querySelector('body')
+    let modal=document.createElement('div')
+    modal.innerHTML=`<div class="modal">
+    <span class="edit">
+        <div id='iconModal'>
+            <img src="../../../../../../assets/icons/Vector(2).png">
+            <img src="../../../../../../assets/icons/Vector(3).png">
+        </div>
+        <span id="textModal">
+            Mode edition
+        </span>
+    </span >
+    <button id="editChangements">publier les changements</button>
+  </div>`
     body.innerHTML=`
 <body>
     <header class="connected" id="header">
-        <div class="modal">
-          <span class="edit">
-          <img src="./assets/icons/editor icon.png">
-          Mode edition</span>
-          <button >publier les changements</button>
-        </div>
+        
         <div class="container_nav">
             <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
             <nav class="nav">
@@ -67,5 +75,6 @@ export let createHtml=()=>{
         </nav>
     </footer>
     </body>`
+    html.appendChild(modal)
     html.appendChild(body)
 }
