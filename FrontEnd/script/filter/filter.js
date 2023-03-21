@@ -1,41 +1,40 @@
 import { showAllProjects } from "./showAllProjects/showAllProjects.js";
 import { showFilteredProjects } from "./showFilteredProjects/showFilteredProjects.js";
 
-export function filter(data) {
-    
+// La fonction showAllProjects permet d'afficher tous les projets sans filtre
+// La fonction showFilteredProjects permet d'afficher les projets qui correspondent à un filtre
 
-    //ON RECUPERE LE DOSSIER DANS LEQUEL S'AFFICHE LES IMAGES
+export function filter(data) {
+
+    // Sélectionner l'élément HTML qui va contenir la galerie d'images
     let gallery = document.querySelector('.gallery');
 
-    //ON RECUPRE LES DIFFERENTS BOUTONS FILTRES
+    // Sélectionner les éléments HTML pour les filtres
     const all = document.getElementById('all');
     const objects = document.getElementById('objects');
     const flats = document.getElementById('flats');
     const hotels_and_restaurants = document.getElementById('hotels_and_restaurants');
 
-    //ON INITIALISE L'AFFICHAGE DES PROJETS/IMAGES AVANT QUIL NE SOIT FILTRé
-    showAllProjects(data)
-   
+    // Afficher tous les projets au chargement de la page
+    showAllProjects(data);
 
-    //ON MET UN LISTENER SUR LES BOUTONS POUR DECLENCHER DU JAVASCRIPT LORS D'UN CLICK
-
-    //AFFICHE TOUT LES PROJETS
+    // Ajouter des écouteurs d'événements pour les filtres
     all.addEventListener('click', () => {
-         showAllProjects(data)
+         showAllProjects(data);
     });
-    // AFFICHE UNIQUEMENT LES OBJETS
     objects.addEventListener('click', () => {
-        let filter="Objets"
-        showFilteredProjects(data,filter)
+        // Filtre par catégorie "Objets"
+        let filter = "Objets";
+        showFilteredProjects(data, filter);
     });
-    // AFFICHE UNIQUEMENT LES APPARTEMENTS
     flats.addEventListener('click', () => {
-        let filter="Appartements"
-        showFilteredProjects(data,filter)
+        // Filtre par catégorie "Appartements"
+        let filter = "Appartements";
+        showFilteredProjects(data, filter);
     });
-    // AFFICHE UNIQUEMENT LES LES HOTELS ET RESTAURANTS
     hotels_and_restaurants.addEventListener('click', () => {
-        let filter="Hotels & restaurants"
-        showFilteredProjects(data,filter)
+        // Filtre par catégorie "Hotels & restaurants"
+        let filter = "Hotels & restaurants";
+        showFilteredProjects(data, filter);
     });
 }

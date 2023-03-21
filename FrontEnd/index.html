@@ -10,6 +10,7 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="stylesheet" href="./style/style.css">
+	
 </head>
 <body>
 <header>
@@ -68,18 +69,6 @@
 		</ul>
 	</nav>
 </footer>
-<script type="module">
-	import { login } from "./script/event/unconnected/login/login.js";
-	import { fetchGetWorks } from "./script/fetch/get/works.js";
-	import { filter } from "./script/filter/filter.js";
-	login()
-	// fetchGetWorks()
-	fetchGetWorks().then((data) => {
-		console.log(data,'liste objet accueil');
-		filter(data)
-	});
-	
-	
-</script>
+<script src="./script/script.js" type="module"></script>
 </body>
 </html>

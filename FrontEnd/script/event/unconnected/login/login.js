@@ -1,12 +1,12 @@
+
+import { loginListener } from "./loginListener.js";
 import { createLoginHtml } from "./createLoginHtml/createLoginHtml.js";
-import { formListener } from "./formListener/formListener.js";
-// import { fetchGetWorks } from "../../../fetch/get/works.js";
+import { formLogin } from "./formLogin/formLogin.js";
+
+// La fonction createLoginHtml va contenir le code HTML qui va être injecté via JS dans la page web
+// La fonction formLogin va contenir tout ce qui concerne le formulaire de connexion
+
 export function login() {
-  let login=document.querySelector('#login')
-  login.addEventListener('click',(e)=>{
-    e.preventDefault()
-    createLoginHtml()
-    formListener()
-    console.log('click sur login');
-  })
+  // Va appeler la fonction loginListener en lui passant les deux fonctions createLoginHtml et formLogin en entrée
+  loginListener(createLoginHtml, formLogin);
 }

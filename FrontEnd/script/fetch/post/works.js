@@ -1,11 +1,17 @@
+// Importation des fonctions "tokenGet" et "fetchGetWorks" depuis d'autres fichiers.
 import { tokenGet } from "./works/tokenGet.js";
 import { fetchGetWorks } from "../get/works.js";
+// Importation de la fonction "filter" depuis un autre fichier.
 import { filter } from "../../filter/filter.js";
+
+// Définition d'une fonction "workPost" qui envoie une requête POST pour envoyer les données du formulaire à l'API.
 export function workPost(formData) {
-  console.log(formData,"dans work");
+  // Récupération du token d'authentification.
   const tokenObj = tokenGet();
+  // Définition des headers pour inclure le token d'authentification.
   const headers = { 'Authorization': 'Bearer ' + tokenObj.token }
 
+  // Envoi de la requête POST à l'API.
   fetch("http://localhost:5678/api/works", {
     method: "POST",
     body: formData,
@@ -14,14 +20,19 @@ export function workPost(formData) {
     }
   })
   .then((response) => {
+    // Suppression du formulaire du DOM.
     let form=document.querySelector('#form')
     form.remove()
     
-     return new Promise((resolve) => {
+    // Récupération des données mises à jour depuis l'API.
+    return new Promise((resolve) => {
       fetchGetWorks().then((data) => {
-        filter(data)
-        let container=document.querySelector('#container')
+        // Filtrage des données pour ne récupérer que les éléments de la galerie photo.
+        filter(data);
+        // Sélection du container principal.
+        let container=document.querySelector('#container');
 
+        // Création des éléments HTML pour afficher la galerie photo mise à jour.
         let content = document.createElement("div");
         let ul = document.createElement("ul");
 
@@ -40,7 +51,7 @@ export function workPost(formData) {
           li.setAttribute('id', element.id);
           img.src = element.imageUrl;
           li.className = "mini_img";
-          li.appendChild(deletefile)
+          li.appendChild(deletefile);
           li.appendChild(img);
           ul.appendChild(li);
         });
@@ -59,30 +70,16 @@ export function workPost(formData) {
         <button id='deleteGallery'>Supprimer la galerie</button>
         `;
 
-        // Ajouter les éléments créés au body
         content.appendChild(ul);
         container.appendChild(titre);
 
         container.appendChild(content);
         container.appendChild(addProject);
-
-        // box_manager.appendChild(dark_filter)
-        // box_manager.appendChild(container)
-
-
-        // body.appendChild(box_manager);
         resolve();
-      })
-     })
-      
-     
-    
-
+      });
+    });
   })
   .catch((error) => {
-    console.error(error, "on est dans modalListener");
-  })
-  .finally(() => {
-    console.log("final");
+    console.error(error);
   });
 }

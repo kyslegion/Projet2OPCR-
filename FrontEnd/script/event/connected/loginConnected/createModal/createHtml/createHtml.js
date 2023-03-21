@@ -1,6 +1,8 @@
 export let createHtml=()=>{
     let html=document.querySelector('html')
     let body=document.querySelector('body')
+
+    // Création d'un élément HTML de type div pour la fenêtre modale, avec du contenu HTML
     let modal=document.createElement('div')
     modal.innerHTML=`<div class="modal">
     <span class="edit">
@@ -14,6 +16,7 @@ export let createHtml=()=>{
     </span >
     <button id="editChangements">publier les changements</button>
   </div>`
+  // Remplacement du contenu du corps du document avec du contenu HTML
     body.innerHTML=`
 <body>
     <header class="connected" id="header">

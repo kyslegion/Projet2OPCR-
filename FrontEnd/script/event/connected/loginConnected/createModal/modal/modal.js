@@ -1,24 +1,28 @@
-import { createHtmlPage } from "./createHtmlPage/createHtmlPage.js";
+// Importation des modules nécessaires
+import { createHtmlPage } from "./fonctions/createHtmlPage.js";
 import { modalListener } from "../modalListener/modalListener.js";
-
 import { closeModal } from "../closeModal/closeModal.js";
-export function modal(fetchGet,tokenpassed) {
-    let modal=document.querySelector('.edit')
+import { darkfilter } from "./fonctions/darkfilter.js";
+
+// Définition de la fonction modale
+export function modal() {
+    // Sélection de l'élément HTML correspondant au bouton d'édition de la modale
+    let modal = document.querySelector('.edit');
+
+    // Ajout d'un écouteur d'événements sur le bouton d'édition
     modal.addEventListener('click', (e) => {
-      e.preventDefault()
-      if (document.querySelector('#box_manager') === null) {
-        console.log('ouverture modal');
-        createHtmlPage().then(() => {
-          modalListener();
-          closeModal()
-            let dark_filter=document.querySelector('#dark_filter')
-            dark_filter.addEventListener('click',(e)=>{
-              e.preventDefault()
-            let box_manager=document.querySelector('#box_manager')
-            box_manager.remove()
-          })
-        });
-      }
-     
+        e.preventDefault();
+
+        // Vérification si la modale est déjà ouverte
+        if (document.querySelector('#box_manager') === null) {
+
+            // Création de la page HTML correspondant à la modale
+            createHtmlPage().then(() => {
+                // Ajout des écouteurs d'événements pour les boutons et les champs de la modale
+                modalListener();
+                closeModal();
+                darkfilter();
+            });
+        }
     });
 }
