@@ -8,11 +8,9 @@ exports.findAll = async (req, res) =>  {
 
 exports.create = async (req, res) => {
 	const host = req.get('host');
-	console.log(req.body,"dans create");
 	const title = req.body.title;
 	const categoryId = req.body.category;
 	const userId = req.auth.userId;
-	console.log('on est dans create');
 	const imageUrl = `${req.protocol}://${host}/images/${req.file.filename}`;
 	try{
 		const work = await Works.create({
@@ -28,9 +26,6 @@ exports.create = async (req, res) => {
 }
 
 exports.delete = async (req, res) => {
-	console.log("on est dans delete");
-	console.log(Works);
-	console.log(req.params,"param");
 	try{
 		await Works.destroy({where:{id: req.params.id}})
 		return res.status(204).json({message: 'Work Deleted Successfully'})

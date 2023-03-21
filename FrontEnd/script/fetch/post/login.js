@@ -43,10 +43,8 @@ export function fetchLoginPost(data) {
     .then(data => {
       // Enregistrer le jeton JWT dans le stockage local du navigateur
       localStorage.setItem('token', JSON.stringify(data));
-      console.log(data);
       // Récupérer les projets depuis l'API et les afficher en appelant les fonctions nécessaires
       fetchGetWorks().then((data) => {
-        console.log(data);
         filter(data);
       });
     })

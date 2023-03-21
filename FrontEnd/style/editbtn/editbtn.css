@@ -10,7 +10,6 @@
 	align-items: center;
 	position: relative;
 	width: 100vw;
-	/* left: -198px; */
 }
 .modal span{
     color: white;
@@ -29,28 +28,19 @@
 }
 
 #container {
-	/* position: absolute; */
-	/* top: 0; */
-	/* left: 0; */
-	/* width: 100vw; */
-	/* height: 100vw; */
 	align-items: center;
 	z-index: 6;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	background: white;
-	/* width: 630px; */
 }
 #content {
 	background-color: white;
-	/* height: 47.59vw; */
 	width: 41.01vw;
 	left: 405px;
 	top: 660px;
-	/* margin-top: calc(56px + 601px); */
 	border-radius: 10px;
-	/* position: fixed; */
 	z-index: 1;
 	top: 0;
 	left: 0;
@@ -89,29 +79,21 @@
 		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 		gap: 6px;
 		grid-template-rows: 0fr 0fr;
-		/* margin-bottom: 67px; */
 	}
-.mini_img{
-    /* width: 78.12px; */
-    /* height: 104.08px; */
-}
+
 .mini_img img{
     width: 100%;
 }
 #addProject {
 	display: flex;
 	flex-direction: column;
-	/* width: 60%; */
 	justify-content: center;
 	align-items: center;
-	/* align-content: center; */
 	margin-inline: 105px;
 	margin-bottom: 48px;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
-	/* height: 100%; */
-	/* width: 100%; */
 	width: 237px;
 	height: 100px;
 }

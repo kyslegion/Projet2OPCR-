@@ -13,7 +13,6 @@ export const fetchGet = (shouldReturn = true,filter) => {
       }
     })
     .then((data)=>{
-      console.log(data);
     })
     .catch((error) => {
       console.error(error);

@@ -38,7 +38,6 @@
     background: transparent;
     border: 0;
 }
-/*input*/
 #title{
     width: 420px;
     height: 51px;
@@ -49,7 +48,6 @@ box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 #category{
     width: 420px;
     height: 51px;
-    /* background-color: transparent; */
     border: 0;
     background: #FFFFFF;
 box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -98,11 +96,3 @@ box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 #textModal{
     margin-right: 21px;
 }
-/* .deletefile {
-	background-image: url('../assets/icons/Group\ 10.png');
-	width: 100%;
-	background-color: transparent;
-	border: 0;
-	position: relative;
-	background-repeat: no-repeat;
-}  */

@@ -1,5 +1,4 @@
 module.exports = (req, res, next) => {
-	// console.log(req.body,"body dabns checkworl");
 	console.log(req.file,'on essaye le file');
 	try{
 		const host = req.get('host');
@@ -7,7 +6,6 @@ module.exports = (req, res, next) => {
 		const categoryId = parseInt(req.body.category) ?? undefined;
 		const userId = req.auth.userId ?? undefined;
 		const imageUrl = `${req.protocol}://${host}/images/${req.file.filename}` ?? undefined;
-		// console.log("host",host,"title",title,"categoryId",categoryId,"imageUrl",imageUrl,"on test");
 	if (title !== undefined &&
 		title.length > 0 &&
 		categoryId !== undefined &&
