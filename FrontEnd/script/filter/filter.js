@@ -1,5 +1,6 @@
-import { showAllProjects } from "./showAllProjects/showAllProjects.js";
-import { showFilteredProjects } from "./showFilteredProjects/showFilteredProjects.js";
+
+import { showAllProjects } from "./fonctions/showAllProjects.js";
+import { showFilteredProjects } from "./fonctions/showFilteredProjects.js";
 
 // La fonction showAllProjects permet d'afficher tous les projets sans filtre
 // La fonction showFilteredProjects permet d'afficher les projets qui correspondent à un filtre

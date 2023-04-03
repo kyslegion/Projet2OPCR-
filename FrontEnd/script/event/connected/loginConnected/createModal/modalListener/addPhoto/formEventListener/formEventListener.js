@@ -1,7 +1,6 @@
-// Importation de la fonction "formDataCreate" depuis un autre fichier.
+
 import { formDataCreate } from "./functions/formDataCreate.js";
 
-// Définition d'une fonction "formEventListener" qui prend un fichier en paramètre.
 export function formEventListener(file){
   // Sélection du formulaire.
   let form = document.querySelector('#form');

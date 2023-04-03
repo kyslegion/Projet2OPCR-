@@ -1,8 +1,8 @@
-import { fetchDelete } from "../../../../../fetch/delete/delete.js";
+
+import { fetchDelete } from "../../../../../fetch/fetch.js";
 import { addPhotoListener } from "./addPhoto/addPhotoListener.js";
 import { deletefile } from "./fonctions/delete.js";
 
-// Définition d'une fonction "modalListener" qui associe deux listeners aux éléments de la page :
 export let modalListener = () => {
   // Appel de la fonction "addPhotoListener" pour ajouter un listener aux boutons d'ajout de photo.
   addPhotoListener();

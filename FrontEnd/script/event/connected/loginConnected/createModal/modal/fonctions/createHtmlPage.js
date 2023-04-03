@@ -1,4 +1,5 @@
-import { fetchGetWorks } from "../../../../../../fetch/get/works2.js";
+// import { fetchGetWorks } from "../../../../../../fetch/get/works2.js";
+import { fetchGetWorks } from "../../../../../../fetch/fetch.js";
 
 // Création d'une fonction qui va générer la page HTML
 export function createHtmlPage() {

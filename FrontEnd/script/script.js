@@ -1,6 +1,6 @@
 
 import { login } from "./event/unconnected/login/login.js";
-import { fetchGetWorks } from "./fetch/get/works.js";
+import { fetchGetWorks } from "./fetch/fetch.js";
 import { filter } from "./filter/filter.js";
 
 // Appel de la fonction de récupération des projets sur la page d'accueil

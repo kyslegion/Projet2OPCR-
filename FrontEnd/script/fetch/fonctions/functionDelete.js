@@ -6,7 +6,7 @@ import { filter } from "../../filter/filter.js";
 import { fetchGetWorks } from "../fetch.js";
 
 // Fonction pour supprimer une entrée dans la base de données
-export const fetchDelete = (parentId,parentElement) => {
+export const functionDelete = (parentId,parentElement) => {
   // Récupération du token d'authentification depuis le stockage local
   const token = localStorage.getItem('token');
   const tokenObj = JSON.parse(token);

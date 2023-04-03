@@ -2,7 +2,6 @@
 import { workPost } from "../../../../../../../../fetch/post/works.js";
 import { validationForm } from "./validationForm.js";
 
-// Définition d'une fonction "formDataCreate" qui crée un objet FormData avec les données du formulaire et le fichier sélectionné.
 export function formDataCreate(form, file) {
   // Création d'un objet FormData à partir du formulaire.
   const formData = new FormData(form);

@@ -1,9 +1,12 @@
-
-import { tokenGet } from "./works/tokenGet.js";
+// Importation des fonctions "tokenGet" et "fetchGetWorks" depuis d'autres fichiers.
+// import { tokenGet } from "./works/tokenGet.js";
+// import { fetchGetWorks } from "../get/works.js";
 import { fetchGetWorks } from "../fetch.js";
+// Importation de la fonction "filter" depuis un autre fichier.
 import { filter } from "../../filter/filter.js";
 
-export function workPost(formData) {
+// Définition d'une fonction "workPost" qui envoie une requête POST pour envoyer les données du formulaire à l'API.
+export function functionPost(formData) {
   // Récupération du token d'authentification.
   const tokenObj = tokenGet();
   // Définition des headers pour inclure le token d'authentification.

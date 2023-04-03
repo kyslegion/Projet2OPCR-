@@ -4,7 +4,7 @@ import { modalListener } from "../modalListener/modalListener.js";
 import { closeModal } from "../closeModal/closeModal.js";
 import { darkfilter } from "./fonctions/darkfilter.js";
 
-// Définition de la fonction modale
+
 export function modal() {
     // Sélection de l'élément HTML correspondant au bouton d'édition de la modale
     let modal = document.querySelector('.edit');

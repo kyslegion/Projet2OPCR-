@@ -17,7 +17,6 @@ app.use('/filter', express.static(path.join(__dirname, 'filter')));
 app.use('/delete', express.static(path.join(__dirname, 'FrontEnd', 'delete')));
 app.use('/get', express.static(path.join(__dirname, 'FrontEnd', 'get')));
 app.use('/post', express.static(path.join(__dirname, 'FrontEnd', 'post')));
-app.use('/fetchGet.js', express.static(path.join(__dirname, 'FrontEnd', 'fetch', 'fetchGet.js')));
 
 // Route pour la page d'accueil
 app.get('/', (req, res) => {

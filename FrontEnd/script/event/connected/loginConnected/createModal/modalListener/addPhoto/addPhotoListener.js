@@ -1,8 +1,7 @@
-// Importation des fonctions nécessaires depuis d'autres fichiers.
+
 import { addPhotoHtml } from "./addPhotoHtml/addPhotoHtml.js";
 import { uploadInfo } from "./uploadInfo/uploadInfo.js";
 
-// Définition d'une fonction "addPhotoListener" qui ajoute un listener au bouton "addPhoto".
 export function addPhotoListener() {
   // Sélection du bouton "addPhoto".
   let add = document.querySelector('#addPhoto');
