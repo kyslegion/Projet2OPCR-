@@ -9,5 +9,5 @@ Dans Visual Studio Code, allez de nouveau dans `Terminal` > `Nouveau terminal`. 
 
 ### 3. Lancer le serveur back-end et front-end
 
-Lancer dans le backend`server.js` et dans le frontend `localserv.js`
+Lancer dans le backend`server.js` et dans le frontend `serverFront.js`
 
