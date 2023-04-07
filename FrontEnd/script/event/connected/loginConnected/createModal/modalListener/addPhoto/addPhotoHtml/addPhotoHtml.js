@@ -36,5 +36,5 @@ export function addPhotoHtml() {
         <input type="submit" value="Valider" required>
       </form>
     `;
-  }
+}
   

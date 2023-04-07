@@ -26,31 +26,22 @@ exports.signup = async (req, res) => {
 }
 
 exports.login = async (req, res) => {
-	// Récupération de l'utilisateur correspondant à l'adresse e-mail fournie
-	const user = await Users.findOne({ where: { email: req.body.email } });
-  
-	// Vérification de l'existence de l'utilisateur
-	if (user === null) {
-	  // Renvoi d'une erreur 404 si l'utilisateur n'est pas trouvé
-	  return res.status(404).json({ message: 'User not found' });
-	} else {
-	  // Comparaison du mot de passe fourni avec le mot de passe stocké
-	  const valid = await bcrypt.compare(req.body.password, user.password);
-  
-	  // Vérification de la validité du mot de passe
-	  if (!valid) {
-		// Renvoi d'une erreur 401 si le mot de passe est invalide
-		return res.status(401).json({ error: new Error('Not authorized') });
-	  } else {
-		// Génération d'un jeton d'authentification valide pendant 24 heures
-		const token = jwt.sign(
-		  { userId: user.id },
-		  process.env.TOKEN_SECRET,
-		  { expiresIn: '24h' }
-		);
-  
-		// Renvoi de l'ID de l'utilisateur et du jeton d'authentification dans la réponse
-		return res.status(200).json({ userId: user.id, token: token });
-	  }
+	const user = await Users.findOne({where: {email: req.body.email}});
+	if(user === null){
+		return res.status(404).json({message: 'user not found'})
+	}else {
+		const valid = await bcrypt.compare(req.body.password, user.password)
+		if(!valid){
+			return res.status(401).json({ error: new Error('Not Authorized') })
+		}
+		return res.status(200).json({
+			userId: user.id,
+			token: jwt.sign(
+				{userId : user.id},
+				process.env.TOKEN_SECRET,
+				{ expiresIn: '24h' }
+			)
+		})
+
 	}
-  };
+}
