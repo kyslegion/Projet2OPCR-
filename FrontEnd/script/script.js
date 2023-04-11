@@ -623,12 +623,82 @@ function loginForm(POSTLOGIN, makeHtmlModal) {
 }
 function loginListener(loginHtml, loginForm,POSTLOGIN,makeHtmlModal,clickEventOnModal) {
   let login = document.querySelector('#login');
+  let projectsHome = document.querySelector('#projectsHome');
+  let home = document.querySelector('#home');
+
+  const navElements = document.querySelectorAll('nav li'); 
+
+
   login.addEventListener('click', (e) => {
+    projectsHome.style.fontWeight = 'normal';
     e.target.style.fontWeight = 'bold';
       e.preventDefault();
       loginHtml();
       loginForm(POSTLOGIN,makeHtmlModal,clickEventOnModal);
   });
+  projectsHome.addEventListener('click', (e) => {
+    login.style.fontWeight = 'normal';
+    e.target.style.fontWeight = 'bold';
+      e.preventDefault();
+      homeHtml()
+      Initialisation(GET)
+      Button(Filter)
+      loginListener(loginHtml, loginForm,POSTLOGIN,makeHtmlModal)
+  });
+  home.addEventListener('click', (e) => {
+    projectsHome.style.fontWeight = 'normal';
+    login.style.fontWeight = 'normal';
+      e.preventDefault();
+      homeHtml()
+      Initialisation(GET)
+      Button(Filter)
+      loginListener(loginHtml, loginForm,POSTLOGIN,makeHtmlModal)
+  });
+  function homeHtml() {
+    let main = document.querySelector('main');
+
+    main.innerHTML=`<main>
+    <section id="introduction">
+      <figure>
+        <img src="./assets/images/sophie-bluel.png" alt="">
+      </figure>
+      <article>
+        <h2>Designer d'espace</h2>
+        <p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+        <p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+        <p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+      </article>
+    </section>
+    <section id="portfolio">
+      <h2 id="titleProject">Mes Projets
+        <span class="modifier hide">
+          Modifier</span>
+      </h2>
+      <ul class="filter">
+        <li id="all" class="selected">Tous</li>
+        <li id="objects">Objets</li>
+        <li id="flats">Appartements</li>
+        <li id="hotels_and_restaurants">Hôtels &amp; restaurants</li>
+      </ul>
+      <div class="gallery"><figure><img src="http://localhost:5678/images/abajour-tahina1651286843956.png"><figcaption>Abajour Tahina</figcaption></figure><figure><img src="http://localhost:5678/images/appartement-paris-v1651287270508.png"><figcaption>Appartement Paris V</figcaption></figure><figure><img src="http://localhost:5678/images/restaurant-sushisen-londres1651287319271.png"><figcaption>Restaurant Sushisen - Londres</figcaption></figure><figure><img src="http://localhost:5678/images/la-balisiere1651287350102.png"><figcaption>Villa “La Balisiere” - Port Louis</figcaption></figure><figure><img src="http://localhost:5678/images/structures-thermopolis1651287380258.png"><figcaption>Structures Thermopolis</figcaption></figure><figure><img src="http://localhost:5678/images/appartement-paris-x1651287435459.png"><figcaption>Appartement Paris X</figcaption></figure><figure><img src="http://localhost:5678/images/le-coteau-cassis1651287469876.png"><figcaption>Pavillon “Le coteau” - Cassis</figcaption></figure><figure><img src="http://localhost:5678/images/villa-ferneze1651287511604.png"><figcaption>Villa Ferneze - Isola d’Elba</figcaption></figure><figure><img src="http://localhost:5678/images/appartement-paris-xviii1651287541053.png"><figcaption>Appartement Paris XVIII</figcaption></figure><figure><img src="http://localhost:5678/images/bar-lullaby-paris1651287567130.png"><figcaption>Bar “Lullaby” - Paris</figcaption></figure></div>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Vous avez un projet ? Discutons-en !</p>
+      <form action="#" method="post">
+        <label for="name">Nom</label>
+        <input id="nameInput" type="text" name="name">
+        <label for="email">Email</label>
+        <input id="emailInput" type="email" name="email">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <input id="submitContact" type="submit" value="Envoyer">
+      </form>
+    </section>
+  </main>`;
+  
+    
+  }
 }
 function loginListener2(loginHtml, loginForm, POSTLOGIN, makeHtmlModal, clickEventOnModal, param) {
   loginHtml();
@@ -993,6 +1063,10 @@ function handleImageUpload() {
   const label = document.querySelector('label[for="image"]');
   const input = document.querySelector('#image-upload');
   const preview = document.querySelector('#image-preview');
+
+  input.addEventListener('invalid', (e) => {
+    console.log('L\'attribut required n\'est pas satisfait.');
+  });
 
   label.addEventListener('click', (e) => {
     e.preventDefault();
